@@ -1,5 +1,5 @@
 <?php
-namespace BdevsElementor\Widget;
+namespace ConexaogElementor\Widget;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
@@ -8,7 +8,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 
 /**
- * Bdevs Elementor Widget.
+ * Conexao G Elementor Widget.
  *
  * Elementor widget that inserts an embbedable content into the page, from any given URL.
  *
@@ -19,7 +19,7 @@ class BdevsBlog extends \Elementor\Widget_Base {
     /**
      * Get widget name.
      *
-     * Retrieve Bdevs Elementor widget name.
+     * Retrieve Conexao G Elementor widget name.
      *
      * @since 1.0.0
      * @access public
@@ -33,7 +33,7 @@ class BdevsBlog extends \Elementor\Widget_Base {
     /**
      * Get widget title.
      *
-     * Retrieve Bdevs Elementor widget title.
+     * Retrieve Conexao G Elementor widget title.
      *
      * @since 1.0.0
      * @access public
@@ -41,13 +41,13 @@ class BdevsBlog extends \Elementor\Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return __( 'Blog', 'bdevs-elementor' );
+        return __( 'Blog', 'conexaog-elementor' );
     }
 
     /**
      * Get widget icon.
      *
-     * Retrieve Bdevs About widget icon.
+     * Retrieve Conexaog About widget icon.
      *
      * @since 1.0.0
      * @access public
@@ -61,7 +61,7 @@ class BdevsBlog extends \Elementor\Widget_Base {
     /**
      * Get widget categories.
      *
-     * Retrieve the list of categories the Bdevs About widget belongs to.
+     * Retrieve the list of categories the Conexaog About widget belongs to.
      *
      * @since 1.0.0
      * @access public
@@ -69,7 +69,7 @@ class BdevsBlog extends \Elementor\Widget_Base {
      * @return array Widget categories.
      */
     public function get_categories() {
-        return [ 'bdevs-elementor' ];
+        return [ 'conexaog-elementor' ];
     }
 
     public function get_keywords() {
@@ -77,22 +77,22 @@ class BdevsBlog extends \Elementor\Widget_Base {
     }
 
     public function get_script_depends() {
-        return [ 'bdevs-elementor'];
+        return [ 'conexaog-elementor'];
     }
 
     // BDT Position
     protected function element_pack_position() {
         $position_options = [
-            ''              => esc_html__('Default', 'bdevs-elementor'),
-            'top-left'      => esc_html__('Top Left', 'bdevs-elementor') ,
-            'top-center'    => esc_html__('Top Center', 'bdevs-elementor') ,
-            'top-right'     => esc_html__('Top Right', 'bdevs-elementor') ,
-            'center'        => esc_html__('Center', 'bdevs-elementor') ,
-            'center-left'   => esc_html__('Center Left', 'bdevs-elementor') ,
-            'center-right'  => esc_html__('Center Right', 'bdevs-elementor') ,
-            'bottom-left'   => esc_html__('Bottom Left', 'bdevs-elementor') ,
-            'bottom-center' => esc_html__('Bottom Center', 'bdevs-elementor') ,
-            'bottom-right'  => esc_html__('Bottom Right', 'bdevs-elementor') ,
+            ''              => esc_html__('Default', 'conexaog-elementor'),
+            'top-left'      => esc_html__('Top Left', 'conexaog-elementor') ,
+            'top-center'    => esc_html__('Top Center', 'conexaog-elementor') ,
+            'top-right'     => esc_html__('Top Right', 'conexaog-elementor') ,
+            'center'        => esc_html__('Center', 'conexaog-elementor') ,
+            'center-left'   => esc_html__('Center Left', 'conexaog-elementor') ,
+            'center-right'  => esc_html__('Center Right', 'conexaog-elementor') ,
+            'bottom-left'   => esc_html__('Bottom Left', 'conexaog-elementor') ,
+            'bottom-center' => esc_html__('Bottom Center', 'conexaog-elementor') ,
+            'bottom-right'  => esc_html__('Bottom Right', 'conexaog-elementor') ,
         ];
 
         return $position_options;
@@ -102,57 +102,57 @@ class BdevsBlog extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_content_heading',
             [
-                'label' => esc_html__( 'Blog', 'bdevs-elementor' ),
+                'label' => esc_html__( 'Blog', 'conexaog-elementor' ),
             ]   
         );    
         $this->add_control(
             'heading',
             [
-                'label'       => __( 'heading:', 'bdevs-elementor' ),
+                'label'       => __( 'heading:', 'conexaog-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter your heading', 'bdevs-elementor' ),
-                'default'     => __( 'LATEST NEWS', 'bdevs-elementor' ),
+                'placeholder' => __( 'Enter your heading', 'conexaog-elementor' ),
+                'default'     => __( 'LATEST NEWS', 'conexaog-elementor' ),
                 'label_block' => true,
             ]
         );  
         $this->add_control(
             'link_button',
             [
-                'label'       => __( 'Link Button:', 'bdevs-elementor' ),
+                'label'       => __( 'Link Button:', 'conexaog-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter your link', 'bdevs-elementor' ),
-                'default'     => __( '#', 'bdevs-elementor' ),
+                'placeholder' => __( 'Enter your link', 'conexaog-elementor' ),
+                'default'     => __( '#', 'conexaog-elementor' ),
                 'label_block' => true,
             ]
         );
         $this->add_control(
             'button',
             [
-                'label'       => __( 'Button:', 'bdevs-elementor' ),
+                'label'       => __( 'Button:', 'conexaog-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter your button', 'bdevs-elementor' ),
-                'default'     => __( 'More News', 'bdevs-elementor' ),
+                'placeholder' => __( 'Enter your button', 'conexaog-elementor' ),
+                'default'     => __( 'More News', 'conexaog-elementor' ),
                 'label_block' => true,
             ]
         );
         $this->add_control(
             'posts_per_page',
             [
-                'label'       => __( 'Posts Per Page:', 'bdevs-elementor' ),
+                'label'       => __( 'Posts Per Page:', 'conexaog-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter your posts per page', 'bdevs-elementor' ),
-                'default'     => __( '3', 'bdevs-elementor' ),
+                'placeholder' => __( 'Enter your posts per page', 'conexaog-elementor' ),
+                'default'     => __( '3', 'conexaog-elementor' ),
                 'label_block' => true,
             ]
         );
         $this->add_control(
             'sortby',
             [
-                'label'     => esc_html__( 'Sort', 'bdevs-elementor' ),
+                'label'     => esc_html__( 'Sort', 'conexaog-elementor' ),
                 'type'      => Controls_Manager::SELECT,
                 'options'   => [
-                    'sortby_style_1'  => esc_html__( 'Newest', 'bdevs-elementor' ),
-                    'sortby_style_2'  => esc_html__( 'Oldest', 'bdevs-elementor' ),
+                    'sortby_style_1'  => esc_html__( 'Newest', 'conexaog-elementor' ),
+                    'sortby_style_2'  => esc_html__( 'Oldest', 'conexaog-elementor' ),
                 ],
                 'default'   => 'sortby_style_1',
             ]
@@ -165,30 +165,30 @@ class BdevsBlog extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_content_layout',
             [
-                'label' => esc_html__( 'Layout', 'bdevs-elementor' ),
+                'label' => esc_html__( 'Layout', 'conexaog-elementor' ),
             ]
         );
 
         $this->add_responsive_control(
             'align',
             [
-                'label'   => esc_html__( 'Alignment', 'bdevs-elementor' ),
+                'label'   => esc_html__( 'Alignment', 'conexaog-elementor' ),
                 'type'    => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'bdevs-elementor' ),
+                        'title' => esc_html__( 'Left', 'conexaog-elementor' ),
                         'icon'  => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'bdevs-elementor' ),
+                        'title' => esc_html__( 'Center', 'conexaog-elementor' ),
                         'icon'  => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'bdevs-elementor' ),
+                        'title' => esc_html__( 'Right', 'conexaog-elementor' ),
                         'icon'  => 'fa fa-align-right',
                     ],
                     'justify' => [
-                        'title' => esc_html__( 'Justified', 'bdevs-elementor' ),
+                        'title' => esc_html__( 'Justified', 'conexaog-elementor' ),
                         'icon'  => 'fa fa-align-justify',
                     ],
                 ],
@@ -200,7 +200,7 @@ class BdevsBlog extends \Elementor\Widget_Base {
         $this->add_control(
             'show_heading',
             [
-                'label'   => esc_html__( 'Show Heading', 'bdevs-elementor' ),
+                'label'   => esc_html__( 'Show Heading', 'conexaog-elementor' ),
                 'type'    => Controls_Manager::SWITCHER,
                 'default' => 'yes',
             ]
@@ -251,7 +251,7 @@ class BdevsBlog extends \Elementor\Widget_Base {
                             <div class="content ">                               
                                 <h6><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h6>
                                 <hr>
-                                <span><i class="fal fa-calendar-alt"></i> <?php the_time(get_option( 'date_format' ));?></span>
+                                <span><i class="fa-solid fa-calendar-alt"></i> <?php the_time(get_option( 'date_format' ));?></span>
                                 <?php if ( has_post_thumbnail() ) { ?>
                                 <div class="image">
                                     <img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id());?>" alt="Blog">
@@ -259,11 +259,11 @@ class BdevsBlog extends \Elementor\Widget_Base {
                                 <?php } ?>
                                 <ul class="blog-meta mb-16">
                                     <li>
-                                        <i class="fal fa-user"></i>
+                                        <i class="fa-solid fa-user"></i>
                                         <?php the_author_posts_link(); ?>
                                     </li>
                                     <li>
-                                        <i class="fal fa-comment-dots"></i> <?php comments_number( esc_html__('0', 'indoconexaog'), esc_html__('1', 'indoconexaog'), esc_html__('%', 'indoconexaog') ); ?>
+                                        <i class="fa-solid fa-comment-dots"></i> <?php comments_number( esc_html__('0', 'indoconexaog'), esc_html__('1', 'indoconexaog'), esc_html__('%', 'indoconexaog') ); ?>
                                     </li>
                                 </ul>
                                 <p><?php if(isset($indoconexaog_redux_demo['blog_excerpt'])){?>
@@ -285,7 +285,7 @@ class BdevsBlog extends \Elementor\Widget_Base {
                             <div class="content ">                               
                                 <h6><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h6>
                                 <hr>
-                                <span><i class="fal fa-calendar-alt"></i> <?php the_time(get_option( 'date_format' ));?></span>
+                                <span><i class="fa-solid fa-calendar-alt"></i> <?php the_time(get_option( 'date_format' ));?></span>
                                 <?php if ( has_post_thumbnail() ) { ?>
                                 <div class="image">
                                     <img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id());?>" alt="Blog">
@@ -293,11 +293,11 @@ class BdevsBlog extends \Elementor\Widget_Base {
                                 <?php } ?>
                                 <ul class="blog-meta mb-16">
                                     <li>
-                                        <i class="fal fa-user"></i>
+                                        <i class="fa-solid fa-user"></i>
                                         <?php the_author_posts_link(); ?>
                                     </li>
                                     <li>
-                                        <i class="fal fa-comment-dots"></i> <?php comments_number( esc_html__('0', 'indoconexaog'), esc_html__('1', 'indoconexaog'), esc_html__('%', 'indoconexaog') ); ?>
+                                        <i class="fa-solid fa-comment-dots"></i> <?php comments_number( esc_html__('0', 'indoconexaog'), esc_html__('1', 'indoconexaog'), esc_html__('%', 'indoconexaog') ); ?>
                                     </li>
                                 </ul>
                                 <p><?php if(isset($indoconexaog_redux_demo['blog_excerpt'])){?>

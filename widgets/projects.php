@@ -1,5 +1,5 @@
 <?php
-namespace BdevsElementor\Widget;
+namespace ConexaogElementor\Widget;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
@@ -8,7 +8,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 
 /**
- * Bdevs Elementor Widget.
+ * Conexao G Elementor Widget.
  *
  * Elementor widget that inserts an embbedable content into the page, from any given URL.
  *
@@ -19,7 +19,7 @@ class BdevsProjects extends \Elementor\Widget_Base {
     /**
      * Get widget name.
      *
-     * Retrieve Bdevs Elementor widget name.
+     * Retrieve Conexao G Elementor widget name.
      *
      * @since 1.0.0
      * @access public
@@ -33,7 +33,7 @@ class BdevsProjects extends \Elementor\Widget_Base {
     /**
      * Get widget title.
      *
-     * Retrieve Bdevs Elementor widget title.
+     * Retrieve Conexao G Elementor widget title.
      *
      * @since 1.0.0
      * @access public
@@ -41,13 +41,13 @@ class BdevsProjects extends \Elementor\Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return __( 'Projects', 'bdevs-elementor' );
+        return __( 'Projects', 'conexaog-elementor' );
     }
 
     /**
      * Get widget icon.
      *
-     * Retrieve Bdevs About widget icon.
+     * Retrieve Conexaog About widget icon.
      *
      * @since 1.0.0
      * @access public
@@ -61,7 +61,7 @@ class BdevsProjects extends \Elementor\Widget_Base {
     /**
      * Get widget categories.
      *
-     * Retrieve the list of categories the Bdevs About widget belongs to.
+     * Retrieve the list of categories the Conexaog About widget belongs to.
      *
      * @since 1.0.0
      * @access public
@@ -69,7 +69,7 @@ class BdevsProjects extends \Elementor\Widget_Base {
      * @return array Widget categories.
      */
     public function get_categories() {
-        return [ 'bdevs-elementor' ];
+        return [ 'conexaog-elementor' ];
     }
 
     public function get_keywords() {
@@ -77,22 +77,22 @@ class BdevsProjects extends \Elementor\Widget_Base {
     }
 
     public function get_script_depends() {
-        return [ 'bdevs-elementor'];
+        return [ 'conexaog-elementor'];
     }
 
     // BDT Position
     protected function element_pack_position() {
         $position_options = [
-            ''              => esc_html__('Default', 'bdevs-elementor'),
-            'top-left'      => esc_html__('Top Left', 'bdevs-elementor') ,
-            'top-center'    => esc_html__('Top Center', 'bdevs-elementor') ,
-            'top-right'     => esc_html__('Top Right', 'bdevs-elementor') ,
-            'center'        => esc_html__('Center', 'bdevs-elementor') ,
-            'center-left'   => esc_html__('Center Left', 'bdevs-elementor') ,
-            'center-right'  => esc_html__('Center Right', 'bdevs-elementor') ,
-            'bottom-left'   => esc_html__('Bottom Left', 'bdevs-elementor') ,
-            'bottom-center' => esc_html__('Bottom Center', 'bdevs-elementor') ,
-            'bottom-right'  => esc_html__('Bottom Right', 'bdevs-elementor') ,
+            ''              => esc_html__('Default', 'conexaog-elementor'),
+            'top-left'      => esc_html__('Top Left', 'conexaog-elementor') ,
+            'top-center'    => esc_html__('Top Center', 'conexaog-elementor') ,
+            'top-right'     => esc_html__('Top Right', 'conexaog-elementor') ,
+            'center'        => esc_html__('Center', 'conexaog-elementor') ,
+            'center-left'   => esc_html__('Center Left', 'conexaog-elementor') ,
+            'center-right'  => esc_html__('Center Right', 'conexaog-elementor') ,
+            'bottom-left'   => esc_html__('Bottom Left', 'conexaog-elementor') ,
+            'bottom-center' => esc_html__('Bottom Center', 'conexaog-elementor') ,
+            'bottom-right'  => esc_html__('Bottom Right', 'conexaog-elementor') ,
         ];
 
         return $position_options;
@@ -102,20 +102,20 @@ class BdevsProjects extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_content_heading',
             [
-                'label' => esc_html__( 'Projects', 'bdevs-elementor' ),
+                'label' => esc_html__( 'Projects', 'conexaog-elementor' ),
             ]
         );
         $this->add_control(
             'choose_style',
             [
-                'label'     => esc_html__( 'Choose Style', 'bdevs-elementor' ),
+                'label'     => esc_html__( 'Choose Style', 'conexaog-elementor' ),
                 'type'      => Controls_Manager::SELECT,
                 'options'   => [
-                    'style_1'  => esc_html__( 'Projects 01', 'bdevs-elementor' ),
-                    'style_2'  => esc_html__( 'Projects 02', 'bdevs-elementor' ),
-                    'style_3'  => esc_html__( 'Projects 03', 'bdevs-elementor' ),
-                    'style_4'  => esc_html__( 'Projects 04', 'bdevs-elementor' ),
-                    'style_5'  => esc_html__( 'Projects 05', 'bdevs-elementor' ),
+                    'style_1'  => esc_html__( 'Projects 01', 'conexaog-elementor' ),
+                    'style_2'  => esc_html__( 'Projects 02', 'conexaog-elementor' ),
+                    'style_3'  => esc_html__( 'Projects 03', 'conexaog-elementor' ),
+                    'style_4'  => esc_html__( 'Projects 04', 'conexaog-elementor' ),
+                    'style_5'  => esc_html__( 'Projects 05', 'conexaog-elementor' ),
                 ],
                 'default'   => 'style_3',
             ]
@@ -123,51 +123,51 @@ class BdevsProjects extends \Elementor\Widget_Base {
         $this->add_control(
             'subheading',
             [
-                'label'       => __( 'Subheading:', 'bdevs-elementor' ),
+                'label'       => __( 'Subheading:', 'conexaog-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter your subheading', 'bdevs-elementor' ),
-                'default'     => __( 'ARCHITECTURE PROJECTS', 'bdevs-elementor' ),
+                'placeholder' => __( 'Enter your subheading', 'conexaog-elementor' ),
+                'default'     => __( 'ARCHITECTURE PROJECTS', 'conexaog-elementor' ),
                 'label_block' => true,
             ]
         );
         $this->add_control(
             'heading',
             [
-                'label'       => __( 'Heading:', 'bdevs-elementor' ),
+                'label'       => __( 'Heading:', 'conexaog-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter your heading', 'bdevs-elementor' ),
-                'default'     => __( 'LATEST WORKS', 'bdevs-elementor' ),
+                'placeholder' => __( 'Enter your heading', 'conexaog-elementor' ),
+                'default'     => __( 'LATEST WORKS', 'conexaog-elementor' ),
                 'label_block' => true,
             ]
         );
         $this->add_control(
             'all',
             [
-                'label'       => __( 'ALL:', 'bdevs-elementor' ),
+                'label'       => __( 'ALL:', 'conexaog-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter your text', 'bdevs-elementor' ),
-                'default'     => __( 'ALL', 'bdevs-elementor' ),
+                'placeholder' => __( 'Enter your text', 'conexaog-elementor' ),
+                'default'     => __( 'ALL', 'conexaog-elementor' ),
                 'label_block' => true,
             ]
         );
         $this->add_control(
             'posts_per_page',
             [
-                'label'       => __( 'Posts Per Page:', 'bdevs-elementor' ),
+                'label'       => __( 'Posts Per Page:', 'conexaog-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter your posts per page', 'bdevs-elementor' ),
-                'default'     => __( '4', 'bdevs-elementor' ),
+                'placeholder' => __( 'Enter your posts per page', 'conexaog-elementor' ),
+                'default'     => __( '4', 'conexaog-elementor' ),
                 'label_block' => true,
             ]
         );
         $this->add_control(
             'sortby',
             [
-                'label'     => esc_html__( 'Sort', 'bdevs-elementor' ),
+                'label'     => esc_html__( 'Sort', 'conexaog-elementor' ),
                 'type'      => Controls_Manager::SELECT,
                 'options'   => [
-                    'sortby_style_1'  => esc_html__( 'Newest', 'bdevs-elementor' ),
-                    'sortby_style_2'  => esc_html__( 'Oldest', 'bdevs-elementor' ),
+                    'sortby_style_1'  => esc_html__( 'Newest', 'conexaog-elementor' ),
+                    'sortby_style_2'  => esc_html__( 'Oldest', 'conexaog-elementor' ),
                 ],
                 'default'   => 'sortby_style_1',
             ]
@@ -175,20 +175,20 @@ class BdevsProjects extends \Elementor\Widget_Base {
         $this->add_control(
             'button',
             [
-                'label'       => __( 'Button:', 'bdevs-elementor' ),
+                'label'       => __( 'Button:', 'conexaog-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter your text', 'bdevs-elementor' ),
-                'default'     => __( 'MORE PROJECTS', 'bdevs-elementor' ),
+                'placeholder' => __( 'Enter your text', 'conexaog-elementor' ),
+                'default'     => __( 'MORE PROJECTS', 'conexaog-elementor' ),
                 'label_block' => true,
             ]
         );
         $this->add_control(
             'link_button',
             [
-                'label'       => __( 'Link Button:', 'bdevs-elementor' ),
+                'label'       => __( 'Link Button:', 'conexaog-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter your link', 'bdevs-elementor' ),
-                'default'     => __( '#', 'bdevs-elementor' ),
+                'placeholder' => __( 'Enter your link', 'conexaog-elementor' ),
+                'default'     => __( '#', 'conexaog-elementor' ),
                 'label_block' => true,
             ]
         );
@@ -196,17 +196,17 @@ class BdevsProjects extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_content_pagination',
             [
-                'label' => esc_html__( 'Pagination', 'bdevs-elementor' ),
+                'label' => esc_html__( 'Pagination', 'conexaog-elementor' ),
             ]
         );
         $this->add_control(
             'prev_next_style',
             [
-                'label'     => esc_html__( 'Choose Prev and Next Style', 'bdevs-elementor' ),
+                'label'     => esc_html__( 'Choose Prev and Next Style', 'conexaog-elementor' ),
                 'type'      => Controls_Manager::SELECT,
                 'options'   => [
-                    'btn_style_1'  => esc_html__( 'Text', 'bdevs-elementor' ),
-                    'btn_style_2'  => esc_html__( 'Icon', 'bdevs-elementor' ),
+                    'btn_style_1'  => esc_html__( 'Text', 'conexaog-elementor' ),
+                    'btn_style_2'  => esc_html__( 'Icon', 'conexaog-elementor' ),
                 ],
                 'default'   => 'btn_style_1',
             ]
@@ -214,10 +214,10 @@ class BdevsProjects extends \Elementor\Widget_Base {
         $this->add_control(
             'prev_text',
             [
-                'label'       => __( 'Prev:', 'bdevs-elementor' ),
+                'label'       => __( 'Prev:', 'conexaog-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter your text', 'bdevs-elementor' ),
-                'default'     => __( 'Prev', 'bdevs-elementor' ),
+                'placeholder' => __( 'Enter your text', 'conexaog-elementor' ),
+                'default'     => __( 'Prev', 'conexaog-elementor' ),
                 'label_block' => true,
                 'condition' => [
                     'prev_next_style' => ['btn_style_1'],
@@ -227,10 +227,10 @@ class BdevsProjects extends \Elementor\Widget_Base {
         $this->add_control(
             'next_text',
             [
-                'label'       => __( 'Next:', 'bdevs-elementor' ),
+                'label'       => __( 'Next:', 'conexaog-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter your text', 'bdevs-elementor' ),
-                'default'     => __( 'Next', 'bdevs-elementor' ),
+                'placeholder' => __( 'Enter your text', 'conexaog-elementor' ),
+                'default'     => __( 'Next', 'conexaog-elementor' ),
                 'label_block' => true,
                 'condition' => [
                     'prev_next_style' => ['btn_style_1'],
@@ -240,10 +240,10 @@ class BdevsProjects extends \Elementor\Widget_Base {
         $this->add_control(
             'prev_icon',
             [
-                'label' => esc_html__( 'Prev Icon', 'bdevs-elementor' ),
+                'label' => esc_html__( 'Prev Icon', 'conexaog-elementor' ),
                 'type' => \Elementor\Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'fa fal fa-chevron-left',
+                    'value' => 'fa fa-solid fa-chevron-left',
                     'library' => 'fa-solid',
                 ],
                 'condition' => [
@@ -254,10 +254,10 @@ class BdevsProjects extends \Elementor\Widget_Base {
         $this->add_control(
             'next_icon',
             [
-                'label' => esc_html__( 'Next Icon', 'bdevs-elementor' ),
+                'label' => esc_html__( 'Next Icon', 'conexaog-elementor' ),
                 'type' => \Elementor\Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'fa fal fa-chevron-right',
+                    'value' => 'fa fa-solid fa-chevron-right',
                     'library' => 'fa-solid',
                 ],
                 'condition' => [
@@ -272,30 +272,30 @@ class BdevsProjects extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_content_layout',
             [
-                'label' => esc_html__( 'Layout', 'bdevs-elementor' ),
+                'label' => esc_html__( 'Layout', 'conexaog-elementor' ),
             ]
         );
 
         $this->add_responsive_control(
             'align',
             [
-                'label'   => esc_html__( 'Alignment', 'bdevs-elementor' ),
+                'label'   => esc_html__( 'Alignment', 'conexaog-elementor' ),
                 'type'    => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'bdevs-elementor' ),
+                        'title' => esc_html__( 'Left', 'conexaog-elementor' ),
                         'icon'  => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'bdevs-elementor' ),
+                        'title' => esc_html__( 'Center', 'conexaog-elementor' ),
                         'icon'  => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'bdevs-elementor' ),
+                        'title' => esc_html__( 'Right', 'conexaog-elementor' ),
                         'icon'  => 'fa fa-align-right',
                     ],
                     'justify' => [
-                        'title' => esc_html__( 'Justified', 'bdevs-elementor' ),
+                        'title' => esc_html__( 'Justified', 'conexaog-elementor' ),
                         'icon'  => 'fa fa-align-justify',
                     ],
                 ],
@@ -307,7 +307,7 @@ class BdevsProjects extends \Elementor\Widget_Base {
         $this->add_control(
             'show_heading',
             [
-                'label'   => esc_html__( 'Show Heading', 'bdevs-elementor' ),
+                'label'   => esc_html__( 'Show Heading', 'conexaog-elementor' ),
                 'type'    => Controls_Manager::SWITCHER,
                 'default' => 'yes',
             ]
@@ -315,7 +315,7 @@ class BdevsProjects extends \Elementor\Widget_Base {
         $this->add_control(
             'show_filter_tab',
             [
-                'label'   => esc_html__( 'Show Filter Tab', 'bdevs-elementor' ),
+                'label'   => esc_html__( 'Show Filter Tab', 'conexaog-elementor' ),
                 'type'    => Controls_Manager::SWITCHER,
                 'default' => 'yes',
             ]
@@ -323,7 +323,7 @@ class BdevsProjects extends \Elementor\Widget_Base {
         $this->add_control(
             'show_button',
             [
-                'label'   => esc_html__( 'Show Button', 'bdevs-elementor' ),
+                'label'   => esc_html__( 'Show Button', 'conexaog-elementor' ),
                 'type'    => Controls_Manager::SWITCHER,
                 'default' => 'yes',
             ]
@@ -331,7 +331,7 @@ class BdevsProjects extends \Elementor\Widget_Base {
         $this->add_control(
             'show_pagination',
             [
-                'label'   => esc_html__( 'Show Pagination', 'bdevs-elementor' ),
+                'label'   => esc_html__( 'Show Pagination', 'conexaog-elementor' ),
                 'type'    => Controls_Manager::SWITCHER,
                 'default' => 'yes',
             ]
@@ -428,7 +428,7 @@ class BdevsProjects extends \Elementor\Widget_Base {
                                                 <span class="circle"></span>
                                                 <span class="dot"></span>
                                                 <span class="line"></span>
-                                                <span class="fa fa-long-arrow-right"></span>
+                                                <span class="fa-solid fa-arrow-right"></span>
                                             </span>
                                         </a>
                                     </div>
@@ -467,7 +467,7 @@ class BdevsProjects extends \Elementor\Widget_Base {
                                                 <span class="circle"></span>
                                                 <span class="dot"></span>
                                                 <span class="line"></span>
-                                                <span class="fa fa-long-arrow-right"></span>
+                                                <span class="fa-solid fa-arrow-right"></span>
                                             </span>
                                         </a>
                                     </div>

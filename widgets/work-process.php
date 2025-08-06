@@ -1,5 +1,5 @@
 <?php
-namespace BdevsElementor\Widget;
+namespace ConexaogElementor\Widget;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
@@ -8,7 +8,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 
 /**
- * Bdevs Elementor Widget.
+ * Conexao G Elementor Widget.
  *
  * Elementor widget that inserts an embbedable content into the page, from any given URL.
  *
@@ -19,7 +19,7 @@ class BdevsWorkProcess extends \Elementor\Widget_Base {
     /**
      * Get widget name.
      *
-     * Retrieve Bdevs Elementor widget name.
+     * Retrieve Conexao G Elementor widget name.
      *
      * @since 1.0.0
      * @access public
@@ -33,7 +33,7 @@ class BdevsWorkProcess extends \Elementor\Widget_Base {
     /**
      * Get widget title.
      *
-     * Retrieve Bdevs Elementor widget title.
+     * Retrieve Conexao G Elementor widget title.
      *
      * @since 1.0.0
      * @access public
@@ -41,13 +41,13 @@ class BdevsWorkProcess extends \Elementor\Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return __( 'Work Process', 'bdevs-elementor' );
+        return __( 'Work Process', 'conexaog-elementor' );
     }
 
     /**
      * Get widget icon.
      *
-     * Retrieve Bdevs About widget icon.
+     * Retrieve Conexaog About widget icon.
      *
      * @since 1.0.0
      * @access public
@@ -61,7 +61,7 @@ class BdevsWorkProcess extends \Elementor\Widget_Base {
     /**
      * Get widget categories.
      *
-     * Retrieve the list of categories the Bdevs About widget belongs to.
+     * Retrieve the list of categories the Conexaog About widget belongs to.
      *
      * @since 1.0.0
      * @access public
@@ -69,7 +69,7 @@ class BdevsWorkProcess extends \Elementor\Widget_Base {
      * @return array Widget categories.
      */
     public function get_categories() {
-        return [ 'bdevs-elementor' ];
+        return [ 'conexaog-elementor' ];
     }
 
     public function get_keywords() {
@@ -77,22 +77,22 @@ class BdevsWorkProcess extends \Elementor\Widget_Base {
     }
 
     public function get_script_depends() {
-        return [ 'bdevs-elementor'];
+        return [ 'conexaog-elementor'];
     }
 
     // BDT Position
     protected function element_pack_position() {
         $position_options = [
-            ''              => esc_html__('Default', 'bdevs-elementor'),
-            'top-left'      => esc_html__('Top Left', 'bdevs-elementor') ,
-            'top-center'    => esc_html__('Top Center', 'bdevs-elementor') ,
-            'top-right'     => esc_html__('Top Right', 'bdevs-elementor') ,
-            'center'        => esc_html__('Center', 'bdevs-elementor') ,
-            'center-left'   => esc_html__('Center Left', 'bdevs-elementor') ,
-            'center-right'  => esc_html__('Center Right', 'bdevs-elementor') ,
-            'bottom-left'   => esc_html__('Bottom Left', 'bdevs-elementor') ,
-            'bottom-center' => esc_html__('Bottom Center', 'bdevs-elementor') ,
-            'bottom-right'  => esc_html__('Bottom Right', 'bdevs-elementor') ,
+            ''              => esc_html__('Default', 'conexaog-elementor'),
+            'top-left'      => esc_html__('Top Left', 'conexaog-elementor') ,
+            'top-center'    => esc_html__('Top Center', 'conexaog-elementor') ,
+            'top-right'     => esc_html__('Top Right', 'conexaog-elementor') ,
+            'center'        => esc_html__('Center', 'conexaog-elementor') ,
+            'center-left'   => esc_html__('Center Left', 'conexaog-elementor') ,
+            'center-right'  => esc_html__('Center Right', 'conexaog-elementor') ,
+            'bottom-left'   => esc_html__('Bottom Left', 'conexaog-elementor') ,
+            'bottom-center' => esc_html__('Bottom Center', 'conexaog-elementor') ,
+            'bottom-right'  => esc_html__('Bottom Right', 'conexaog-elementor') ,
         ];
 
         return $position_options;
@@ -103,95 +103,95 @@ class BdevsWorkProcess extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_content_heading',
             [
-                'label' => esc_html__( 'Work Process', 'bdevs-elementor' ),
+                'label' => esc_html__( 'Work Process', 'conexaog-elementor' ),
             ]   
         ); 
         $this->add_control(
             'heading',
             [
-                'label'       => __( 'Heading:', 'bdevs-elementor' ),
+                'label'       => __( 'Heading:', 'conexaog-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter your heading', 'bdevs-elementor' ),
-                'default'     => __( 'WORK PROCESS', 'bdevs-elementor' ),
+                'placeholder' => __( 'Enter your heading', 'conexaog-elementor' ),
+                'default'     => __( 'WORK PROCESS', 'conexaog-elementor' ),
                 'label_block' => true,
             ]
         ); 
         $this->add_control(
             'link_button',
             [
-                'label'       => __( 'Link Button:', 'bdevs-elementor' ),
+                'label'       => __( 'Link Button:', 'conexaog-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter your link', 'bdevs-elementor' ),
-                'default'     => __( '#', 'bdevs-elementor' ),
+                'placeholder' => __( 'Enter your link', 'conexaog-elementor' ),
+                'default'     => __( '#', 'conexaog-elementor' ),
                 'label_block' => true,
             ]
         );
         $this->add_control(
             'button',
             [
-                'label'       => __( 'Button:', 'bdevs-elementor' ),
+                'label'       => __( 'Button:', 'conexaog-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter your button', 'bdevs-elementor' ),
-                'default'     => __( 'Contact us', 'bdevs-elementor' ),
+                'placeholder' => __( 'Enter your button', 'conexaog-elementor' ),
+                'default'     => __( 'Contact us', 'conexaog-elementor' ),
                 'label_block' => true,
             ]
         );  
         $this->add_control(
             'tabs',
             [
-                'label' => esc_html__( 'Items', 'bdevs-elementor' ),
+                'label' => esc_html__( 'Items', 'conexaog-elementor' ),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => [                    
                     [
                         'name'        => 'number',
-                        'label'       => esc_html__( 'Number:', 'bdevs-elementor' ),
+                        'label'       => esc_html__( 'Number:', 'conexaog-elementor' ),
                         'type'        => Controls_Manager::TEXT,
                         'dynamic'     => [ 'active' => true ],
-                        'default'     => esc_html__( '01' , 'bdevs-elementor' ),
+                        'default'     => esc_html__( '01' , 'conexaog-elementor' ),
                         'label_block' => true,
                     ],
                     [
                         'name'        => 'title',
-                        'label'       => esc_html__( 'Title:', 'bdevs-elementor' ),
+                        'label'       => esc_html__( 'Title:', 'conexaog-elementor' ),
                         'type'        => Controls_Manager::TEXT,
                         'dynamic'     => [ 'active' => true ],
-                        'default'     => esc_html__( 'IDEAS' , 'bdevs-elementor' ),
+                        'default'     => esc_html__( 'IDEAS' , 'conexaog-elementor' ),
                         'label_block' => true,
                     ],     
                     [
                         'name'        => 'text',
-                        'label'       => esc_html__( 'Text:', 'bdevs-elementor' ),
+                        'label'       => esc_html__( 'Text:', 'conexaog-elementor' ),
                         'type'        => Controls_Manager::TEXTAREA,
                         'dynamic'     => [ 'active' => true ],
-                        'default'     => esc_html__( 'This is text' , 'bdevs-elementor' ),
+                        'default'     => esc_html__( 'This is text' , 'conexaog-elementor' ),
                         'label_block' => true,
                     ],
                     [
                         'name'    => 'ruler_active_dark',
-                        'label'   => esc_html__( 'Ruler Active Dark Mode', 'bdevs-elementor' ),
+                        'label'   => esc_html__( 'Ruler Active Dark Mode', 'conexaog-elementor' ),
                         'type'    => Controls_Manager::MEDIA,
-                         'default'     => esc_html__( '' , 'bdevs-elementor' ),
+                         'default'     => esc_html__( '' , 'conexaog-elementor' ),
                         'dynamic' => [ 'active' => true ],
                     ], 
                     [
                         'name'    => 'ruler_active_light',
-                        'label'   => esc_html__( 'Ruler Active Light Mode', 'bdevs-elementor' ),
+                        'label'   => esc_html__( 'Ruler Active Light Mode', 'conexaog-elementor' ),
                         'type'    => Controls_Manager::MEDIA,
-                         'default'     => esc_html__( '' , 'bdevs-elementor' ),
+                         'default'     => esc_html__( '' , 'conexaog-elementor' ),
                         'dynamic' => [ 'active' => true ],
                     ],
                     [
                         'name'    => 'ruler',
-                        'label'   => esc_html__( 'Ruler', 'bdevs-elementor' ),
+                        'label'   => esc_html__( 'Ruler', 'conexaog-elementor' ),
                         'type'    => Controls_Manager::MEDIA,
-                         'default'     => esc_html__( '' , 'bdevs-elementor' ),
+                         'default'     => esc_html__( '' , 'conexaog-elementor' ),
                         'dynamic' => [ 'active' => true ],
                     ],                
                     [
                         'name'    => 'wp_image',
-                        'label'   => esc_html__( 'Image', 'bdevs-elementor' ),
+                        'label'   => esc_html__( 'Image', 'conexaog-elementor' ),
                         'type'    => Controls_Manager::MEDIA,
-                         'default'     => esc_html__( '' , 'bdevs-elementor' ),
+                         'default'     => esc_html__( '' , 'conexaog-elementor' ),
                         'dynamic' => [ 'active' => true ],
                     ],
                 ],
@@ -205,30 +205,30 @@ class BdevsWorkProcess extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_content_layout',
             [
-                'label' => esc_html__( 'Layout', 'bdevs-elementor' ),
+                'label' => esc_html__( 'Layout', 'conexaog-elementor' ),
             ]
         );
 
         $this->add_responsive_control(
             'align',
             [
-                'label'   => esc_html__( 'Alignment', 'bdevs-elementor' ),
+                'label'   => esc_html__( 'Alignment', 'conexaog-elementor' ),
                 'type'    => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'bdevs-elementor' ),
+                        'title' => esc_html__( 'Left', 'conexaog-elementor' ),
                         'icon'  => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'bdevs-elementor' ),
+                        'title' => esc_html__( 'Center', 'conexaog-elementor' ),
                         'icon'  => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'bdevs-elementor' ),
+                        'title' => esc_html__( 'Right', 'conexaog-elementor' ),
                         'icon'  => 'fa fa-align-right',
                     ],
                     'justify' => [
-                        'title' => esc_html__( 'Justified', 'bdevs-elementor' ),
+                        'title' => esc_html__( 'Justified', 'conexaog-elementor' ),
                         'icon'  => 'fa fa-align-justify',
                     ],
                 ],
@@ -240,7 +240,7 @@ class BdevsWorkProcess extends \Elementor\Widget_Base {
         $this->add_control(
             'show_heading',
             [
-                'label'   => esc_html__( 'Show Heading', 'bdevs-elementor' ),
+                'label'   => esc_html__( 'Show Heading', 'conexaog-elementor' ),
                 'type'    => Controls_Manager::SWITCHER,
                 'default' => 'yes',
             ]

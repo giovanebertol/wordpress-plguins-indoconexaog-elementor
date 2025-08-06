@@ -2,7 +2,7 @@
 
     var WidgetSliderHerowidthElementorHandler = function ($scope, $) {
 
-        var carousel_elem = $scope.find('.bdevs-elementor').eq(0);
+        var carousel_elem = $scope.find('.conexaog-elementor').eq(0);
 
         if (carousel_elem.length > 0) {
 
@@ -15,7 +15,7 @@
     // Make sure you run this code under Elementor..
     $(window).on('elementor/frontend/init', function () {
 
-        elementorFrontend.hooks.addAction('frontend/element_ready/bdevs-elementor.default', WidgetSliderHerowidthElementorHandler);
+        elementorFrontend.hooks.addAction('frontend/element_ready/conexaog-elementor.default', WidgetSliderHerowidthElementorHandler);
 
     });
 

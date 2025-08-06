@@ -6,7 +6,7 @@
  * Version:     1.0.0
  * Author:      Conexaog  Tecnologia
  * Author URI:  https:/conexaogtecnologia.com.br/indo
- * Text Domain: bdevs-elementor
+ * Text Domain: conexaog-elementor
  * Domain Path: /languages/
  */
 
@@ -14,13 +14,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 /**
- * Main Bdevs Elementor Class
+ * Main Conexao G Elementor Class
  *
  * The main class that initiates and runs the plugin.
  *
  * @since 1.0.0
  */
-final class BdevsElementor {
+final class ConexaogElementor {
 
 	/**
 	 * Plugin Version
@@ -57,7 +57,7 @@ final class BdevsElementor {
 	 * @access private
 	 * @static
 	 *
-	 * @var BdevsElementor The single instance of the class.
+	 * @var ConexaogElementor The single instance of the class.
 	 */
 	private static $_instance = null;
 
@@ -71,7 +71,7 @@ final class BdevsElementor {
 	 * @access public
 	 * @static
 	 *
-	 * @return BdevsElementor An instance of the class.
+	 * @return ConexaogElementor An instance of the class.
 	 */
 	public static function instance() {
 
@@ -109,7 +109,7 @@ final class BdevsElementor {
 	 */
 	public function i18n() {
 
-		load_plugin_textdomain( 'bdevs-elementor' );
+		load_plugin_textdomain( 'conexaog-elementor' );
 
 	}
 
@@ -175,9 +175,9 @@ final class BdevsElementor {
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor */
-			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'bdevs-elementor' ),
-			'<strong>' . esc_html__( 'Indoconexaog Elementor', 'bdevs-elementor' ) . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'bdevs-elementor' ) . '</strong>'
+			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'conexaog-elementor' ),
+			'<strong>' . esc_html__( 'Indoconexaog Elementor', 'conexaog-elementor' ) . '</strong>',
+			'<strong>' . esc_html__( 'Elementor', 'conexaog-elementor' ) . '</strong>'
 		);
 
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
@@ -199,9 +199,9 @@ final class BdevsElementor {
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'bdevs-elementor' ),
-			'<strong>' . esc_html__( 'Indoconexaog Elementor', 'bdevs-elementor' ) . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'bdevs-elementor' ) . '</strong>',
+			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'conexaog-elementor' ),
+			'<strong>' . esc_html__( 'Indoconexaog Elementor', 'conexaog-elementor' ) . '</strong>',
+			'<strong>' . esc_html__( 'Elementor', 'conexaog-elementor' ) . '</strong>',
 			 self::MINIMUM_ELEMENTOR_VERSION
 		);
 
@@ -224,9 +224,9 @@ final class BdevsElementor {
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'bdevs-elementor' ),
-			'<strong>' . esc_html__( 'Indoconexaog Elementor', 'bdevs-elementor' ) . '</strong>',
-			'<strong>' . esc_html__( 'PHP', 'bdevs-elementor' ) . '</strong>',
+			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'conexaog-elementor' ),
+			'<strong>' . esc_html__( 'Indoconexaog Elementor', 'conexaog-elementor' ) . '</strong>',
+			'<strong>' . esc_html__( 'PHP', 'conexaog-elementor' ) . '</strong>',
 			 self::MINIMUM_PHP_VERSION
 		);
 
@@ -238,9 +238,9 @@ final class BdevsElementor {
 	 * Add Elementor category.
 	 */
 	public function add_elementor_category() {
-    	\Elementor\Plugin::instance()->elements_manager->add_category('bdevs-elementor',
+    	\Elementor\Plugin::instance()->elements_manager->add_category('conexaog-elementor',
 	      	array(
-					'title' => __( 'Indoconexaog Elementor', 'bdevs-elementor' ),
+					'title' => __( 'Indoconexaog Elementor', 'conexaog-elementor' ),
 					'icon'  => 'fa fa-plug',
 	      	) 
 	    );
@@ -251,7 +251,7 @@ final class BdevsElementor {
 	*
 	*/
 	public function register_frontend_scripts() {
-	wp_register_script( 'bdevs-elementor', plugin_dir_url( __FILE__ ) . 'assets/js/bdevs-elementor.js', array( 'jquery' ), self::VERSION );
+	wp_register_script( 'conexaog-elementor', plugin_dir_url( __FILE__ ) . 'assets/js/conexaog-elementor.js', array( 'jquery' ), self::VERSION );
 	}
 
 
@@ -260,7 +260,7 @@ final class BdevsElementor {
 	*
 	*/
 	public function register_frontend_styles() {
-	wp_register_style( 'bdevs-elementor', plugin_dir_url( __FILE__ ) . 'assets/css/bdevs-elementor.css', self::VERSION );
+	wp_register_style( 'conexaog-elementor', plugin_dir_url( __FILE__ ) . 'assets/css/conexaog-elementor.css', self::VERSION );
 	}
 
 
@@ -302,32 +302,34 @@ final class BdevsElementor {
 		require_once plugin_dir_path( __FILE__ ) . 'widgets/related-projects.php';
 		require_once plugin_dir_path( __FILE__ ) . 'widgets/project-details-slider.php';
 		require_once plugin_dir_path( __FILE__ ) . 'widgets/project-details-3.php';
+		require_once plugin_dir_path( __FILE__ ) . 'widgets/slider-post-widget.php';
 		
 		// Register widget
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsSlider() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsAbout() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsServices() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsProjects() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsInteriorArea() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsWorkProcess() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsTestimonial() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsCTA() );		
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsBlog() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsSlider2() );		
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsPageBanner() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsAbout2() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsAchievements() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsTeam() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsFAQ() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsContactBanner() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsContact() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsProjectDetails1() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsProjectDetails2() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsGallery() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsSingleProjectTypes() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsRelatedProjects() );		
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsProjectDetailsSlider() );		
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \BdevsElementor\Widget\BdevsProjectDetails3() );		
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsSlider() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsAbout() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsServices() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsProjects() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsInteriorArea() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsWorkProcess() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsTestimonial() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsCTA() );		
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsBlog() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsSlider2() );		
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsPageBanner() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsAbout2() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsAchievements() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsTeam() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsFAQ() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsContactBanner() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsContact() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsProjectDetails1() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsProjectDetails2() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsGallery() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsSingleProjectTypes() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsRelatedProjects() );		
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsProjectDetailsSlider() );		
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsProjectDetails3() );		
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\SliderPostWidget() );
 	}
 
 	/** 
@@ -354,4 +356,4 @@ final class BdevsElementor {
 
 }
 
-BdevsElementor::instance();
+ConexaogElementor::instance();
