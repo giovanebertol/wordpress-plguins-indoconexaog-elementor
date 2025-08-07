@@ -305,6 +305,8 @@ final class ConexaogElementor {
 		require_once plugin_dir_path( __FILE__ ) . 'widgets/slider-post-widget.php';
 		require_once plugin_dir_path( __FILE__ ) . 'widgets/empreendimentos-widget.php';
 		require_once plugin_dir_path( __FILE__ ) . 'widgets/empreendimentos-retrato-widget.php';
+		require_once plugin_dir_path( __FILE__ ) . 'widgets/empreendimentos-destaques-widget.php';		
+
 		
 		// Register widget
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BdevsSlider() );
@@ -334,6 +336,7 @@ final class ConexaogElementor {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\SliderPostWidget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\EmpreendimentosWidget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\EmpreendimentosRetratoWidget () );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\EmpreendimentosDestaquesWidget () );
 	}
 
 	/** 
