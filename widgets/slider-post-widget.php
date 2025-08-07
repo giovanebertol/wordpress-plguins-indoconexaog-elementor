@@ -76,7 +76,7 @@ class SliderPostWidget extends \Elementor\Widget_Base {
                     'compare' => '=',
                 ),
             ),
-            'orderby'        => 'date', // ou 'menu_order' se quiser ordenar manualmente
+            'orderby'        => 'menu_order', // Ordena pelo campo "Ordem"
             'order'          => 'ASC',
         );
         $slider_query = new \WP_Query($args);
@@ -86,7 +86,7 @@ class SliderPostWidget extends \Elementor\Widget_Base {
             $slider_id = 'slider-' . $this->get_id(); // ID único para o carrossel
         ?>
         <section class="hero-area mt-92 pb-40 black-120-bg">
-            <div class="container pb-64">
+            <div class="container hero-container-custom">
                 <div class="carousel slide" id="<?php echo esc_attr($slider_id); ?>" data-bs-ride="carousel">
                     
                     <div class="carousel-indicators">
@@ -111,14 +111,14 @@ class SliderPostWidget extends \Elementor\Widget_Base {
                             <div class="d-flex">
                                 <?php if ($texto_destaque) : ?>
                                 <div class="col-lg-2">
-                                    <h1 class="rotate-hero" style="left: -282px; bottom: 255px;"><?php echo esc_html($texto_destaque); ?></h1>
+                                    <h1 class="blue-bg rotate-hero" style="left: -282px; bottom: 255px;"><?php echo esc_html($texto_destaque); ?></h1>
                                 </div>
                                 <?php endif; ?>
 
                                 <div class="col-lg-10 d-flex hero-text-img">
-                                    <div class="hero-content">
+                                    <div class="blue-120-bg hero-content">
                                         <div class="wow fadeInUp">
-                                            <h6><?php the_title(); ?></h6>
+                                            <h6><?php the_content(); ?></h6>
                                             <?php if ($botao_texto && $botao_url) : ?>
                                             <a href="<?php echo esc_url($botao_url); ?>" class="hero-btn wow fadeInUp">
                                                 <?php echo esc_html($botao_texto); ?>
@@ -126,7 +126,7 @@ class SliderPostWidget extends \Elementor\Widget_Base {
                                                     <span class="circle"></span>
                                                     <span class="dot"></span>
                                                     <span class="line"></span>
-                                                    <span class="fa-solid fa-arrow-right"></span>
+                                                    <span class="fa-solid fa-chevron-right btn-arrow-icon"></span>                                                    
                                                 </span>
                                             </a>
                                             <?php endif; ?>

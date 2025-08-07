@@ -259,7 +259,9 @@ class BdevsAbout extends \Elementor\Widget_Base {
                                 </div>
                                 <div>
                                     <?php if(isset($item['big_image']['url']) && $item['big_image']['url'] != ''){?>
+                                   
                                     <img class="big-image wow zoomIn" src="<?php echo wp_kses_post($item['big_image']['url']); ?>" alt="hero image" title="hero image">
+                                   
                                     <?php } ?>
                                     <?php if(isset($item['rotate_p']) && $item['rotate_p'] != ''){?>
                                     <p class="p-rotate custom-rotate<?php echo $i;?>"><?php print wp_kses_post($item['rotate_p']); ?></p>
@@ -267,17 +269,23 @@ class BdevsAbout extends \Elementor\Widget_Base {
     									<?php if(isset($item['rotate_p_top']) && $item['rotate_p_top'] != ''){?>
 										.custom-rotate<?php echo $i;?> {
 										    top: <?php print wp_kses_post($item['rotate_p_top']); ?>px!important;
+                                            z-index: 1;
+                                            width: 200px;
 										}
 										<?php } ?>
 										<?php if(isset($item['rotate_p_right']) && $item['rotate_p_right'] != ''){?>
 										.custom-rotate<?php echo $i;?> {
 										    right: <?php print wp_kses_post($item['rotate_p_right']); ?>px!important;
+                                            z-index: 1;
+                                            width: 200px;
 										}
 										<?php } ?>
                                         <?php if(isset($item['rotate_p_width']) && $item['rotate_p_width'] != ''){?>
 										.custom-rotate<?php echo $i;?> {
 										    width: <?php print wp_kses_post($item['rotate_p_width']); ?>px!important;
+                                            z-index: 1;
                                             text-align: center;
+                                            width: 200px;
 										}
 										<?php } ?>
                                     </style>
@@ -287,7 +295,9 @@ class BdevsAbout extends \Elementor\Widget_Base {
                                     <?php } ?>
                                 </div>
                                 <?php if(isset($item['small_image']['url']) && $item['small_image']['url'] != ''){?>
-                                <img class="small-image" src="<?php echo wp_kses_post($item['small_image']['url']); ?>" alt="hero image" title="hero image">
+                                <div class="about-image-wrapper">
+                                    <img class="small-image" src="<?php echo wp_kses_post($item['small_image']['url']); ?>" alt="hero image" title="hero image">
+                                </div>
                                 <?php } ?>
                             </div>       
                         </div>
