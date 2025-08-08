@@ -306,6 +306,8 @@ final class ConexaogElementor {
 		require_once plugin_dir_path( __FILE__ ) . 'widgets/empreendimentos-widget.php';
 		require_once plugin_dir_path( __FILE__ ) . 'widgets/empreendimentos-retrato-widget.php';
 		require_once plugin_dir_path( __FILE__ ) . 'widgets/empreendimentos-destaques-widget.php';		
+		require_once plugin_dir_path( __FILE__ ) . 'widgets/image-text-widget.php';		
+		require_once plugin_dir_path( __FILE__ ) . 'widgets/NewsletterWidget.php';		
 
 		
 		// Register widget
@@ -337,6 +339,8 @@ final class ConexaogElementor {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\EmpreendimentosWidget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\EmpreendimentosRetratoWidget () );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\EmpreendimentosDestaquesWidget () );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\ImageTextWidget () );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\NewsletterWidget () );
 	}
 
 	/** 
