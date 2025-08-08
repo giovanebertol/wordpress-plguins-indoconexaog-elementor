@@ -2,256 +2,231 @@
 namespace ConexaogElementor\Widget;
 
 use Elementor\Controls_Manager;
-use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Background; // <<< ADD
 
-/**
- * Conexao G Elementor Widget.
- *
- * Elementor widget that inserts an embbedable content into the page, from any given URL.
- *
- * @since 1.0.0
- */
+if ( ! defined('ABSPATH') ) exit;
+
 class BdevsAchievements extends \Elementor\Widget_Base {
-
-    /**
-     * Get widget name.
-     *
-     * Retrieve Conexao G Elementor widget name.
-     *
-     * @since 1.0.0
-     * @access public
-     *
-     * @return string Widget name.
-     */
-    public function get_name() {
-        return 'bdevs-achievements';
-    }
-
-    /**
-     * Get widget title.
-     *
-     * Retrieve Conexao G Elementor widget title.
-     *
-     * @since 1.0.0
-     * @access public
-     *
-     * @return string Widget title.
-     */
-    public function get_title() {
-        return __( 'Achievements', 'conexaog-elementor' );
-    }
-
-    /**
-     * Get widget icon.
-     *
-     * Retrieve Conexaog About widget icon.
-     *
-     * @since 1.0.0
-     * @access public
-     *
-     * @return string Widget icon.
-     */
-    public function get_icon() {
-        return 'eicon-counter';
-    }
-
-    /**
-     * Get widget categories.
-     *
-     * Retrieve the list of categories the Conexaog About widget belongs to.
-     *
-     * @since 1.0.0
-     * @access public
-     *
-     * @return array Widget categories.
-     */
-    public function get_categories() {
-        return [ 'conexaog-elementor' ];
-    }
-
-    public function get_keywords() {
-        return [ 'achievements' ];
-    }
-
-    public function get_script_depends() {
-        return [ 'conexaog-elementor'];
-    }
-
-    // BDT Position
-    protected function element_pack_position() {
-        $position_options = [
-            ''              => esc_html__('Default', 'conexaog-elementor'),
-            'top-left'      => esc_html__('Top Left', 'conexaog-elementor') ,
-            'top-center'    => esc_html__('Top Center', 'conexaog-elementor') ,
-            'top-right'     => esc_html__('Top Right', 'conexaog-elementor') ,
-            'center'        => esc_html__('Center', 'conexaog-elementor') ,
-            'center-left'   => esc_html__('Center Left', 'conexaog-elementor') ,
-            'center-right'  => esc_html__('Center Right', 'conexaog-elementor') ,
-            'bottom-left'   => esc_html__('Bottom Left', 'conexaog-elementor') ,
-            'bottom-center' => esc_html__('Bottom Center', 'conexaog-elementor') ,
-            'bottom-right'  => esc_html__('Bottom Right', 'conexaog-elementor') ,
-        ];
-
-        return $position_options;
-    }
+    public function get_name() { return 'bdevs-achievements'; }
+    public function get_title(){ return __('Achievements', 'conexaog-elementor'); }
+    public function get_icon() { return 'eicon-counter'; }
+    public function get_categories(){ return ['conexaog-elementor']; }
+    public function get_script_depends(){ return ['conexaog-elementor']; }
 
     protected function _register_controls() {
-        
-        $this->start_controls_section(
-            'section_content_video',
-            [
-                'label' => esc_html__( 'Achievements', 'conexaog-elementor' ),
-            ]   
-        ); 
-        $this->add_control(
-            'background_image',
-            [
-                'label'   => esc_html__( 'Background Image:', 'conexaog-elementor' ),
-                'type'    => Controls_Manager::MEDIA,
-                'dynamic' => [ 'active' => true ],
-                'description' => esc_html__( 'Add image from here', 'conexaog-elementor' ),
-            ]
-        );      
-        $this->add_control(
-            'tabs',
-            [
-                'label' => esc_html__( 'Couter:', 'conexaog-elementor' ),
-                'type' => Controls_Manager::REPEATER,
-                'fields' => [                   
-                    [
-                        'name'        => 'count_to',
-                        'label'       => esc_html__( 'Count To:', 'conexaog-elementor' ),
-                        'type'        => Controls_Manager::TEXT,
-                        'dynamic'     => [ 'active' => true ],
-                        'default'     => esc_html__( '1200' , 'conexaog-elementor' ),
-                        'label_block' => true,
-                    ],
-                    [
-                        'name'        => 'title',
-                        'label'       => esc_html__( 'Title:', 'conexaog-elementor' ),
-                        'type'        => Controls_Manager::TEXT,
-                        'dynamic'     => [ 'active' => true ],
-                        'default'     => esc_html__( 'Happy Clients' , 'conexaog-elementor' ),
-                        'label_block' => true,
-                    ],
-                    [
-                        'name'        => 'after_number',
-                        'label'       => esc_html__( 'After Number:', 'conexaog-elementor' ),
-                        'type'        => Controls_Manager::TEXT,
-                        'dynamic'     => [ 'active' => true ],
-                        'default'     => esc_html__( 'K' , 'conexaog-elementor' ),
-                        'label_block' => true,
-                    ],
+        $this->start_controls_section('section_content', [
+            'label' => esc_html__('Achievements', 'conexaog-elementor'),
+        ]);
+
+        // Imagens (duas) no estilo vitrine
+        $this->add_control('image_left_1', [
+            'label' => esc_html__('Imagem esquerda – 01', 'conexaog-elementor'),
+            'type'  => Controls_Manager::MEDIA,
+        ]);
+        $this->add_control('image_left_2', [
+            'label' => esc_html__('Imagem esquerda – 02', 'conexaog-elementor'),
+            'type'  => Controls_Manager::MEDIA,
+        ]);
+
+        // Título opcional
+        $this->add_control('heading', [
+            'label'       => esc_html__('Título (opcional)', 'conexaog-elementor'),
+            'type'        => Controls_Manager::TEXT,
+            'placeholder' => __('Nossos Números', 'conexaog-elementor'),
+            'default'     => __('É fácil confiar na Marini', 'conexaog-elementor'),
+            'label_block' => true,
+        ]);
+
+        // Repeater dos indicadores
+        $this->add_control('items', [
+            'label'  => esc_html__('Indicadores', 'conexaog-elementor'),
+            'type'   => Controls_Manager::REPEATER,
+            'fields' => [
+                [
+                    'name'  => 'count_to',
+                    'label' => esc_html__('Número final', 'conexaog-elementor'),
+                    'type'  => Controls_Manager::NUMBER,
+                    'default' => 1200,
                 ],
-            ]
-        );
+                [
+                    'name'  => 'suffix',
+                    'label' => esc_html__('Sufixo (ex.: +, K, %)', 'conexaog-elementor'),
+                    'type'  => Controls_Manager::TEXT,
+                    'default' => '',
+                ],
+                [
+                    'name'  => 'label',
+                    'label' => esc_html__('Rótulo', 'conexaog-elementor'),
+                    'type'  => Controls_Manager::TEXT,
+                    'default' => esc_html__('Happy Clients', 'conexaog-elementor'),
+                ],
+            ],
+            'default' => [
+                ['count_to'=>1200, 'suffix'=>'K',  'label'=>'Clientes Felizes'],
+                ['count_to'=>21,   'suffix'=>'+',  'label'=>'Anos de Experiência'],
+                ['count_to'=>30,   'suffix'=>'+',  'label'=>'Parceiros'],
+                ['count_to'=>50,   'suffix'=>'+',  'label'=>'Projetos Entregues'],
+            ],
+            'title_field' => '{{{ label }}}',
+        ]);
+
         $this->end_controls_section();
-        /** 
-        *   Layout section 
-        **/
-        $this->start_controls_section(
-            'section_content_layout',
+
+        // Layout
+        $this->start_controls_section('section_layout', [
+            'label' => esc_html__('Layout', 'conexaog-elementor'),
+        ]);
+
+        $this->add_responsive_control('align', [
+            'label' => esc_html__('Alinhamento do texto', 'conexaog-elementor'),
+            'type'  => Controls_Manager::CHOOSE,
+            'options' => [
+                'left'   => [ 'title'=>__('Esq.', 'conexaog-elementor'), 'icon'=>'eicon-text-align-left' ],
+                'center' => [ 'title'=>__('Centro', 'conexaog-elementor'), 'icon'=>'eicon-text-align-center' ],
+                'right'  => [ 'title'=>__('Dir.', 'conexaog-elementor'), 'icon'=>'eicon-text-align-right' ],
+            ],
+            'default' => 'left',
+            'prefix_class' => 'elementor%s-align-',
+        ]);
+
+        $this->end_controls_section();
+
+        // === NOVO: Estilo do Background & Overlay (imagem + gradiente) ===
+        $this->start_controls_section('section_style_background', [
+            'label' => esc_html__('Background & Overlay', 'conexaog-elementor'),
+            'tab'   => Controls_Manager::TAB_STYLE,
+        ]);
+
+        // Imagem de fundo / gradiente no próprio wrapper
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
             [
-                'label' => esc_html__( 'Layout', 'conexaog-elementor' ),
+                'name'     => 'section_background',
+                'label'    => esc_html__('Imagem de Fundo', 'conexaog-elementor'),
+                'types'    => ['classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .achievements-split',
             ]
         );
 
-        $this->add_responsive_control(
-            'align',
+        // Gradiente de overlay no ::before (por cima do fundo)
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
             [
-                'label'   => esc_html__( 'Alignment', 'conexaog-elementor' ),
-                'type'    => Controls_Manager::CHOOSE,
-                'options' => [
-                    'left' => [
-                        'title' => esc_html__( 'Left', 'conexaog-elementor' ),
-                        'icon'  => 'fa fa-align-left',
-                    ],
-                    'center' => [
-                        'title' => esc_html__( 'Center', 'conexaog-elementor' ),
-                        'icon'  => 'fa fa-align-center',
-                    ],
-                    'right' => [
-                        'title' => esc_html__( 'Right', 'conexaog-elementor' ),
-                        'icon'  => 'fa fa-align-right',
-                    ],
-                    'justify' => [
-                        'title' => esc_html__( 'Justified', 'conexaog-elementor' ),
-                        'icon'  => 'fa fa-align-justify',
-                    ],
-                ],
-                'prefix_class' => 'elementor%s-align-',
-                'description'  => 'Use align to match position',
-                'default'      => 'left',
+                'name'     => 'overlay_gradient',
+                'label'    => esc_html__('Overlay (Gradiente)', 'conexaog-elementor'),
+                'types'    => ['gradient'],
+                'selector' => '{{WRAPPER}} .achievements-split::before',
             ]
         );
+
+        // Opacidade do overlay
+        $this->add_control('overlay_opacity', [
+            'label' => esc_html__('Opacidade do Overlay', 'conexaog-elementor'),
+            'type'  => Controls_Manager::SLIDER,
+            'range' => [
+                'px' => ['min' => 0, 'max' => 1, 'step' => 0.01],
+            ],
+            'default' => ['size' => 0.35],
+            'selectors' => [
+                '{{WRAPPER}} .achievements-split::before' => 'opacity: {{SIZE}};',
+            ],
+        ]);
+
         $this->end_controls_section();
     }
+
     public function render() {
-        $settings  = $this->get_settings_for_display();
-        extract($settings); 
+        $s = $this->get_settings_for_display();
+        $img1 = !empty($s['image_left_1']['url']) ? esc_url($s['image_left_1']['url']) : '';
+        $img2 = !empty($s['image_left_2']['url']) ? esc_url($s['image_left_2']['url']) : '';
         ?>
-        <!-- Achievements Area start -->
-        <section class="achievement-area text-white" style="background-image: url(<?php echo wp_kses_post($settings['background_image']['url']);?>);">
+        <section class="achievements-split py-128"><!-- wrapper recebe bg e overlay via controles -->
             <div class="container">
-                <div class="row">
-                    <div class="counter-wrap">
-                        <div class="row">
-                            <?php foreach ( $settings['tabs'] as $item ) : ?>
-                            <div class="mobile-mb col-xs-3 col-lg-3">
-                                <div class="counter-text-wrap wow fadeInUp delay-0-2s">
-                                    <div class="d-flex">
-                                        <h2 class="count-text mb-32" data-speed="3000" data-stop="<?php print wp_kses_post($item['count_to']); ?>">0</h2><span class="h2"><?php print wp_kses_post($item['after_number']); ?></span>
+                <div class="row gx-5 align-items-center">
+                    <!-- Coluna imagens -->
+                    <div class="col-lg-6 mb-64 mb-lg-0">
+                        <div class="split-images">
+                            <?php if($img1): ?>
+                                <img class="split-img split-img--primary" src="<?php echo $img1; ?>" alt="">
+                            <?php endif; ?>
+                            <?php if($img2): ?>
+                                <img class="split-img split-img--secondary" src="<?php echo $img2; ?>" alt="">
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
+                    <!-- Coluna indicadores -->
+                    <div class="col-lg-6">
+                        <?php if(!empty($s['heading'])): ?>
+                            <h2 class="mb-48"><?php echo esc_html($s['heading']); ?></h2>
+                        <?php endif; ?>
+
+                        <div class="achievements-list">
+                            <?php if(!empty($s['items']) && is_array($s['items'])):
+                                $i=1;
+                                foreach($s['items'] as $it):
+                                    $count = isset($it['count_to']) ? (float)$it['count_to'] : 0;
+                                    $suffix = isset($it['suffix']) ? $it['suffix'] : '';
+                                    $label  = isset($it['label']) ? $it['label'] : '';
+                            ?>
+                            <div class="achievements-item d-flex align-items-baseline">
+                                <div class="achievements-step h5"><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?></div>
+                                <div class="achievements-content">
+                                    <div class="achievements-line"></div>
+                                    <div class="achievements-meta">
+                                        <div class="achievements-number h2" data-count="<?php echo esc_attr($count); ?>">
+                                            0
+                                        </div>
+                                        <?php if($suffix!==''): ?>
+                                            <span class="achievements-suffix h3"><?php echo esc_html($suffix); ?></span>
+                                        <?php endif; ?>
                                     </div>
-                                    <?php if(isset($item['title']) && $item['title'] != ''){?>
-                                    <h5 class="counter-title"><?php print wp_kses_post($item['title']); ?></h5>
-                                    <?php } ?>   
+                                    <div class="achievements-label h5"><?php echo esc_html($label); ?></div>
                                 </div>
                             </div>
-                            <?php endforeach; ?>
+                            <?php $i++; endforeach; endif; ?>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Achievements Area end -->
-        <?php if (is_admin()) { ?>
-        <script type="text/javascript">
-        if ($('.counter-text-wrap').length) {
-            $('.counter-text-wrap').appear(function () {
 
-                var $t = $(this),
-                    n = $t.find(".count-text").attr("data-stop"),
-                    r = parseInt($t.find(".count-text").attr("data-speed"), 10);
+        <!-- Script de contagem (frontend + editor) -->
+        <script>
+        (function(){
+            const els = document.querySelectorAll('.achievements-number[data-count]');
+            if(!els.length) return;
 
-                if (!$t.hasClass("counted")) {
-                    $t.addClass("counted");
-                    $({
-                        countNum: $t.find(".count-text").text()
-                    }).animate({
-                        countNum: n
-                    }, {
-                        duration: r,
-                        easing: "linear",
-                        step: function () {
-                            $t.find(".count-text").text(Math.floor(this.countNum));
-                        },
-                        complete: function () {
-                            $t.find(".count-text").text(this.countNum);
+            const animate = (el) => {
+                const end = parseFloat(el.getAttribute('data-count')) || 0;
+                const dur = 1400;
+                const start = 0;
+                const t0 = performance.now();
+
+                const step = (now) => {
+                    const p = Math.min((now - t0) / dur, 1);
+                    const eased = (1 - Math.pow(1 - p, 3));
+                    el.textContent = Math.floor(start + (end - start) * eased);
+                    if(p < 1) requestAnimationFrame(step);
+                };
+                requestAnimationFrame(step);
+            };
+
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if(e.isIntersecting){
+                        const n = e.target;
+                        if(!n.dataset.ran){
+                            n.dataset.ran = '1';
+                            animate(n);
                         }
-                    });
-                }
+                    }
+                });
+            }, {threshold: 0.25});
 
-            }, {
-                accY: 0
-            });
-        }     
-        </script>   
-        <?php } ?>
-    <?php
+            els.forEach(el => io.observe(el));
+        })();
+        </script>
+        <?php
     }
 }
-
-

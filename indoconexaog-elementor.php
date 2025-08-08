@@ -308,6 +308,10 @@ final class ConexaogElementor {
 		require_once plugin_dir_path( __FILE__ ) . 'widgets/empreendimentos-destaques-widget.php';		
 		require_once plugin_dir_path( __FILE__ ) . 'widgets/image-text-widget.php';		
 		require_once plugin_dir_path( __FILE__ ) . 'widgets/NewsletterWidget.php';		
+		require_once plugin_dir_path( __FILE__ ) . 'widgets/class-blog-cards-soft.php';		
+		require_once plugin_dir_path( __FILE__ ) . 'widgets/hero-about-banner.php';		
+		require_once plugin_dir_path( __FILE__ ) . 'widgets/timeline-veritical.php';		
+		require_once plugin_dir_path( __FILE__ ) . 'widgets/timeline-years.php';		
 
 		
 		// Register widget
@@ -341,6 +345,10 @@ final class ConexaogElementor {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\EmpreendimentosDestaquesWidget () );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\ImageTextWidget () );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\NewsletterWidget () );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\BlogCardsSoft () );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\HeroAboutBanner () );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\TimelineVertical () );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\TimelineYears () );
 	}
 
 	/** 

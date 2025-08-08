@@ -281,7 +281,7 @@ class BdevsBlog extends \Elementor\Widget_Base {
                     </div>
                     <?php } elseif($i%2==0) { ?>
                     <div class="col-lg-4 item text-center">
-                        <div class="blog-item wow fadeInUp delay-0-2s black-120-bg ">
+                        <div class="blog-item wow fadeInUp delay-0-2s blue-120-bg">
                             <div class="content ">                               
                                 <h6><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h6>
                                 <hr>
