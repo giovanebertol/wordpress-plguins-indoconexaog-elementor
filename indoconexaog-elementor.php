@@ -312,6 +312,7 @@ final class ConexaogElementor {
 		require_once plugin_dir_path( __FILE__ ) . 'widgets/hero-about-banner.php';		
 		require_once plugin_dir_path( __FILE__ ) . 'widgets/timeline-veritical.php';		
 		require_once plugin_dir_path( __FILE__ ) . 'widgets/timeline-years.php';		
+		require_once plugin_dir_path( __FILE__ ) . 'widgets/MariniContactHero.php';		
 
 		
 		// Register widget
@@ -349,6 +350,7 @@ final class ConexaogElementor {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\HeroAboutBanner () );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\TimelineVertical () );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\TimelineYears () );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \ConexaogElementor\Widget\MariniContactHero () );
 	}
 
 	/** 
