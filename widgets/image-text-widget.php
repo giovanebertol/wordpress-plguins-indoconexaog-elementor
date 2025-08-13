@@ -93,6 +93,10 @@ class ImageTextWidget extends Widget_Base {
                         'title' => __( 'Vídeo', 'conexaog-elementor' ),
                         'icon'  => 'eicon-video-camera',
                     ],
+                    'gallery' => [
+                        'title' => __( 'Galeria', 'conexaog-elementor' ),
+                        'icon'  => 'eicon-gallery-grid',
+                    ],
                 ],
                 'default' => 'image',
                 'toggle'  => false,
@@ -137,6 +141,31 @@ class ImageTextWidget extends Widget_Base {
                 'media_types' => [ 'video' ],
                 'condition' => [
                     'media_type' => 'video',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'image_gallery',
+            [
+                'label' => __( 'Adicionar Imagens', 'conexaog-elementor' ),
+                'type' => Controls_Manager::GALLERY,
+                'default' => [],
+                'condition' => [
+                    'media_type' => 'gallery',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'gallery_video_url',
+            [
+                'label' => __( 'URL do Vídeo para Galeria (Opcional)', 'conexaog-elementor' ),
+                'type' => Controls_Manager::TEXT,
+                'placeholder' => __( 'https://vimeo.com/...', 'conexaog-elementor' ),
+                'description' => __( 'Adicione uma URL de vídeo para incluir um botão de play na galeria.', 'conexaog-elementor' ),
+                'condition' => [
+                    'media_type' => 'gallery',
                 ],
             ]
         );
@@ -212,29 +241,71 @@ class ImageTextWidget extends Widget_Base {
                 'default' => '#3C5F89',
             ]
         );
-
-        // *** NOVO CONTROLE DE ALTURA RESPONSIVO ***
+        
+        // CONTROLE: Altura da Galeria (apenas este widget)
         $this->add_responsive_control(
             'media_max_height',
             [
-                'label' => __( 'Altura Máxima da Mídia', 'conexaog-elementor' ),
-                'type' => Controls_Manager::SLIDER,
+                'label' => __( 'Altura da Galeria', 'conexaog-elementor' ),
+                'type'  => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', 'vh' ],
                 'range' => [
-                    'px' => [
-                        'min' => 100,
-                        'max' => 1000,
-                    ],
-                    'vh' => [
-                        'min' => 10,
-                        'max' => 100,
-                    ],
+                    'px' => [ 'min' => 100, 'max' => 1200 ],
+                    'vh' => [ 'min' => 10,  'max' => 100  ],
                 ],
                 'selectors' => [
-                    // Aplica a altura máxima no container da mídia
-                    '{{WRAPPER}} .texto_slide .esquerda .mask_img' => 'max-height: {{SIZE}}{{UNIT}};',
+                    // Força a altura e desativa proporção fixa neste widget
+                    '{{WRAPPER}} .generic-gallery-grid' => 'height: {{SIZE}}{{UNIT}} !important; max-height: none !important; aspect-ratio: auto !important;',
+                    // Evita que filhos imponham altura mínima
+                    '{{WRAPPER}} .generic-gallery-grid > *' => 'min-height: 0 !important;',
+                    // Garante que as imagens preencham as células
+                    '{{WRAPPER}} .generic-gallery-grid .gallery-image' => 'height: 100% !important; object-fit: cover;',
+                    // Garantia nos wrappers internos do seu widget
+                    '{{WRAPPER}} .texto_slide .esquerda, {{WRAPPER}} .texto_slide .esquerda .wrapper, {{WRAPPER}} .texto_slide .esquerda .mask_img' => 'height: auto !important; max-height: none !important;',
                 ],
-                'description' => __( 'Defina uma altura máxima para a imagem ou vídeo. Use o ícone de dispositivo para ajustar para mobile.', 'conexaog-elementor' ),
+                'description' => __( 'Defina a altura da galeria (este widget).', 'conexaog-elementor' ),
+                'separator' => 'before',
+            ]
+        );
+
+
+        // LARGURA DA GALERIA (wrap da coluna esquerda)
+        $this->add_responsive_control(
+            'gallery_width',
+            [
+                'label' => __( 'Largura da Galeria', 'conexaog-elementor' ),
+                'type'  => Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%', 'vw' ],
+                'range' => [
+                    'px' => [ 'min' => 200, 'max' => 1200 ],
+                    '%'  => [ 'min' => 10,  'max' => 100  ],
+                    'vw' => [ 'min' => 10,  'max' => 100  ],
+                ],
+                'selectors' => [
+                    // Remove o teto do tema e aplica a largura escolhida
+                    '{{WRAPPER}} .texto_slide .esquerda .wrapper' => 'max-width: {{SIZE}}{{UNIT}} !important; width: {{SIZE}}{{UNIT}} !important;',
+                    // Garante que a grid ocupe 100% da área do wrapper
+                    '{{WRAPPER}} .texto_slide .esquerda .wrapper .generic-gallery-grid' => 'width: 100% !important;',
+                ],
+            ]
+        );
+
+        // LARGURA MÁXIMA DO CONTAINER
+        $this->add_responsive_control(
+            'container_max_width',
+            [
+                'label' => __( 'Máx. largura do container', 'conexaog-elementor' ),
+                'type'  => Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%', 'vw' ],
+                'range' => [
+                    'px' => [ 'min' => 600, 'max' => 1920 ],
+                    '%'  => [ 'min' => 50,  'max' => 100  ],
+                    'vw' => [ 'min' => 50,  'max' => 100  ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .texto_slide .centro' => 'max-width: {{SIZE}}{{UNIT}} !important;',
+                ],
+                'default' => [ 'size' => 1200, 'unit' => 'px' ],
                 'separator' => 'before',
             ]
         );
@@ -244,6 +315,12 @@ class ImageTextWidget extends Widget_Base {
 
     protected function render() {
         $s = $this->get_settings_for_display();
+
+        $widget_id = $this->get_id();
+        echo '<style>
+        .elementor-element-' . esc_attr($widget_id) . ' .esquerda,
+        .elementor-element-' . esc_attr($widget_id) . ' .esquerda .wrapper { height:auto; }
+        </style>';
 
         // Botão
         if ( empty($s['button_link']['url']) ) {
@@ -284,7 +361,42 @@ class ImageTextWidget extends Widget_Base {
                                 
                                 <video class="primary-video" autoplay muted loop playsinline src="<?php echo esc_url($s['primary_video']['url']); ?>"></video>
 
-                            <?php endif; ?>
+                            <?php // INÍCIO DA ALTERAÇÃO: Renderização da galeria com correção para lightbox duplo
+                            elseif ( $s['media_type'] === 'gallery' && !empty($s['image_gallery']) ):
+                                // Verifica se a função helper existe antes de chamá-la
+                                if ( function_exists('render_diferenciais_gallery') ) {
+                                    
+                                    // Captura o HTML da galeria para modificá-lo
+                                    ob_start();
+                                    
+                                    echo render_diferenciais_gallery($s['image_gallery'], [
+                                        'gallery_id'           => 'widget-gallery-' . $this->get_id(),
+                                        'show_counter'         => true,
+                                        'enable_video'         => !empty($s['gallery_video_url']),
+                                        'video_url'            => $s['gallery_video_url'],
+                                        'enable_animations'    => true,
+                                        'max_visible_images'   => 8,
+                                    ]);
+                                    
+                                    $gallery_html = ob_get_clean();
+                                    
+                                    // Adiciona o atributo 'data-elementor-open-lightbox="no"' em todos os links <a>
+                                    // para impedir que o lightbox padrão do Elementor seja acionado junto com o da galeria.
+                                    $modified_html = str_replace('<a ', '<a data-elementor-open-lightbox="no" ', $gallery_html);
+                                    
+                                    echo $modified_html;
+
+                                } else {
+                                    // Mensagem de fallback caso a função não exista
+                                    echo '<p style="color: red; background: white; padding: 10px;">A função `render_diferenciais_gallery` não foi encontrada. Verifique se o helper está carregado.</p>';
+                                    // Como alternativa, mostra a primeira imagem da galeria
+                                    $first_image = reset($s['image_gallery']);
+                                    if ($first_image && isset($first_image['url'])) {
+                                        echo '<img src="' . esc_url($first_image['url']) . '" alt="Primeira imagem da galeria">';
+                                    }
+                                }
+                            endif; 
+                            // FIM DA ALTERAÇÃO ?>
                         </div>
                     </div>
                 </div>

@@ -94,7 +94,22 @@ class HeroAboutBanner extends \Elementor\Widget_Base {
             'condition' => ['show_breadcrumb' => 'yes'],
         ]);
 
-        
+        // INÍCIO DA ALTERAÇÃO: Adicionando controles para o "Scroll Down"
+        $this->add_control('show_scroll_down', [
+            'label'     => __('Mostrar "Scroll Down"', 'conexaog-elementor'),
+            'type'      => Controls_Manager::SWITCHER,
+            'default'   => 'yes',
+            'separator' => 'before',
+        ]);
+
+        $this->add_control('scroll_down_link', [
+            'label'     => __('Link do "Scroll Down"', 'conexaog-elementor'),
+            'type'      => Controls_Manager::URL,
+            'dynamic'   => [ 'active' => true ],
+            'default'   => ['url' => '#blog-content', 'is_external' => false, 'nofollow' => false],
+            'condition' => ['show_scroll_down' => 'yes'],
+        ]);
+        // FIM DA ALTERAÇÃO
 
         $this->end_controls_section();
 
@@ -197,7 +212,7 @@ class HeroAboutBanner extends \Elementor\Widget_Base {
             if ( $featured ) $bg_url = $featured;
         }
 
-        $classes  = ['banner-area', $s['top_space'], $s['bottom_space']];
+        $classes   = ['banner-area', $s['top_space'], $s['bottom_space']];
         $classes[] = ($s['style']==='light') ? 'text-black' : '';
 
         $bg_attr = $bg_url ? ' style="background-image:url('.esc_url($bg_url).');"' : '';
@@ -247,13 +262,11 @@ class HeroAboutBanner extends \Elementor\Widget_Base {
                             // $btn_class = ($s['style']==='light') ? 'stroke-btn' : 'btn-white-bg';
                         ?>
                             <div class="mt-32">
-                                <a class="bt_acao <?php echo esc_attr($btn_class); ?>" href="<?php echo esc_url($link); ?>"<?php echo $target.$rel; ?>>
+                                <a class="bt_acao <?php echo esc_attr($btn_class ?? ''); ?>" href="<?php echo esc_url($link); ?>"<?php echo $target.$rel; ?>>
                                     <?php echo esc_html($s['button_text']); ?>
                                 </a>
                             </div>
                         <?php endif; ?>
-
-                        
 
                     </div>
                 </div>
@@ -264,6 +277,22 @@ class HeroAboutBanner extends \Elementor\Widget_Base {
                 .banner-area .cg-hero-overlay{ position:absolute; inset:0; content:""; display:block; z-index:0; }
                 .banner-area .banner-content{ position: relative; z-index:1; }
             </style>
+            
+            <?php // INÍCIO DA ALTERAÇÃO: Renderização dinâmica do "Scroll Down" ?>
+            <?php if ( !empty($s['show_scroll_down']) && $s['show_scroll_down'] === 'yes' && !empty($s['scroll_down_link']['url']) ):
+                $scroll_link   = $s['scroll_down_link']['url'];
+                $scroll_target = !empty($s['scroll_down_link']['is_external']) ? ' target="_blank"' : '';
+                $scroll_rel    = !empty($s['scroll_down_link']['nofollow']) ? ' rel="nofollow"' : '';
+            ?>
+                <div class="scroll-down">
+                    <a href="<?php echo esc_url($scroll_link); ?>"<?php echo $scroll_target . $scroll_rel; ?>>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+            <?php endif; ?>
+            <?php // FIM DA ALTERAÇÃO ?>
+
         </section>
         <?php
     }
